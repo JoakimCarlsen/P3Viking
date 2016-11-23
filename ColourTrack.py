@@ -6,9 +6,11 @@ import socket
 
 UDP_IP = "127.0.0.1"
 UDP_PORT = 5005
+UDP_PORT2 = 5004
 
 print "UDP target IP:", UDP_IP
 print "UDP target port:", UDP_PORT
+print "UDP target port2:", UDP_PORT2
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
@@ -31,24 +33,23 @@ def findanddraw(_contours):
         
         # finds the biggest contour
         max_index = np.argmax(areas)
-        cnt=contours[max_index]
-       
-        #finds center of the biggest contour
-        
-        M = cv2.moments(cnt)
+        cnt = contours[max_index]
     
         #finds the circle around the contour
         (x,y),radius = cv2.minEnclosingCircle(cnt)
         center = (int(x),int(y))
         radius = int(radius)
         
+        #draws the circle around the contour
+        cv2.circle(frame,center,radius,(0,255,0),2)
         
-        if M['m00'] != 0:
+                #finds center of the biggest contour
+        M = cv2.moments(cnt)
+        
+        if M['m00'] != 0:         
             cx = int(M['m10']/M['m00'])
             cy = int(M['m01']/M['m00'])
-        #draws the circle around the contour
-            cv2.circle(frame,center,radius,(0,255,0),2)
-        #draws the mieddle of a contour        
+            #draws the mieddle of a contour        
             cv2.circle(frame, (cx, cy), 7, (255, 255, 255), -1)
             _cx = cx
             return _cx
@@ -62,7 +63,7 @@ while(1):
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # define range of blue color in HSV
-    lower_blue = np.array([90,70,70])
+    lower_blue = np.array([90,70,150])
     upper_blue = np.array([140,254,254])
     
     lower_red = np.array([0,130,70])
@@ -75,6 +76,7 @@ while(1):
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
     
     # Threshold the HSV image to get only RED colors
+    #maskREDLOW = cv2.inRange(hsv, lower_red, upper_red)
     maskREDLOW = cv2.inRange(hsv, lower_red, upper_red)
     
     maskREDUP = cv2.inRange(hsv, lower_redup, upper_redup)
@@ -85,13 +87,15 @@ while(1):
     
     #print "message:", str(findanddraw(_contours = contours))
     sock.sendto(str(findanddraw(_contours = contours)) , (UDP_IP, UDP_PORT))
-    print 'object 1', findanddraw(_contours = contours)
+    #print 'object 1', findanddraw(_contours = contours)
     
-    sock.sendto(str(findanddraw(_contours = contours2)) , (UDP_IP, UDP_PORT))
-    print 'object 2', findanddraw(_contours = contours2)
+    sock.sendto(str(findanddraw(_contours = contours2)) , (UDP_IP, UDP_PORT2))
+    #print 'object 2', findanddraw(_contours = contours2)
+    
     
     cv2.imshow('frame',frame)
     cv2.imshow('mask',mask)
+
     cv2.imshow('maskJOINED', maskREDLOW + maskREDUP)
 
     k = cv2.waitKey(5) & 0xFF
