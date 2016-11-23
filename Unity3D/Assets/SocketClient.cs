@@ -6,108 +6,126 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-public class SocketClient : MonoBehaviour {
+public class SocketClient : MonoBehaviour
+{
 
-	// Use this for initialization
+    // Use this for initialization
 
-	//private const int listenPort = 5005;
-	public GameObject hero;
-	public GameObject braveguy;
+    public GameObject hero;
+    public GameObject braveguy;
+    public int count = 1;
 
-	private float xPos = 10.0f;
-    private float xPos2 = 10.0f;
+    private static float xPos = 10.0f;
+    private static float xPos2 = 10.0f;
 
-	public int port;
+    public int port;
     public int port2;
-	Thread receiveThread;
-	UdpClient client;
 
-	//info
+    Thread receiveThread;
+    Thread receiveThread2;
+    UdpClient client;
+    UdpClient client2;
 
-	public string lastReceivedUDPPacket = "";
-	public string allReceivedUDPPackets = "";
+    //info
 
-	void Start () {
-		init(port);
+    public string lastReceivedUDPPacket = "";
+    public string allReceivedUDPPackets = "";
+
+    public string lastReceivedUDPPacket2 = "";
+    public string allReceivedUDPPackets2 = "";
+
+    public void Start()
+    {
+
+        init(port);
         init(port2);
-	}
+    }
 
-	/*
-	void OnGUI(){
-		Rect  rectObj=new Rect (40,10,200,400);
-		
-		GUIStyle  style  = new GUIStyle ();
-		
-		style .alignment  = TextAnchor.UpperLeft;
-		
-		GUI .Box (rectObj,"# UDPReceive\n127.0.0.1 "+port +" #\n"
-		          
-		          //+ "shell> nc -u 127.0.0.1 : "+port +" \n"
-		          
-		          + "\nLast Packet: \n"+ lastReceivedUDPPacket
-		          
-		          //+ "\n\nAll Messages: \n"+allReceivedUDPPackets
-		          
-		          ,style );
+    void init(int _port)
+    {
+        //print("UPDSend.init()");
 
-	}*/
+        //print("Sending to 127.0.0.1 : " + _port);
 
-	int init(int _port){
-		port = _port;
+        receiveThread = new Thread(() => ReceiveData(_port));
+        receiveThread.IsBackground = true;
+        receiveThread.Start();
+        //print("new Thread Start" + count + " port " + _port);
+        count++;
 
-		print ("UPDSend.init()");
+    }
 
-		print ("Sending to 127.0.0.1 : " + port);
-
-		receiveThread = new Thread (new ThreadStart(ReceiveData));
-		receiveThread.IsBackground = true;
-		receiveThread.Start ();
-		return port;
-
-	}
-
-	private void ReceiveData(){
-		client = new UdpClient (port);
-		while (true) {
-			try{
-				IPEndPoint anyIP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
-				byte[] data = client.Receive(ref anyIP);
-
-				string text = Encoding.UTF8.GetString(data);
-				print (">> " + text);
-				lastReceivedUDPPacket=text;
-				allReceivedUDPPackets=allReceivedUDPPackets+text;
-                if (port == 5005)
+    public void ReceiveData(int _portX)
+    {
+        if (_portX == 5005)
+        {
+            client = new UdpClient(_portX);
+            while (true)
+            {
+                try
                 {
+                    IPEndPoint anyIP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), _portX);
+
+                    byte[] data = client.Receive(ref anyIP);
+
+                    string text = Encoding.UTF8.GetString(data);
+                    //print(">> port  " + _portX + text);
+                    lastReceivedUDPPacket = text;
+                    allReceivedUDPPackets = allReceivedUDPPackets + text;
                     xPos = float.Parse(text);
                     xPos *= 0.021818f;
                 }
-                else if(port == 5004)
+                catch (Exception e)
                 {
+                    print(e.ToString());
+                }
+            }
+        }
+        if (_portX == 5004)
+        {
+            client2 = new UdpClient(_portX);
+            while (true)
+            {
+                try
+                {
+                    IPEndPoint anyIP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), _portX);
+
+                    byte[] data = client2.Receive(ref anyIP);
+
+                    string text = Encoding.UTF8.GetString(data);
+                    //print(">> port  " + _portX + text);
+                    lastReceivedUDPPacket2 = text;
+                    allReceivedUDPPackets2 = allReceivedUDPPackets2 + text;
                     xPos2 = float.Parse(text);
                     xPos2 *= 0.021818f;
                 }
-			}catch(Exception e){
-				print (e.ToString()+port);
-			}
-		}
-	}
+                catch (Exception e)
+                {
+                    print(e.ToString());
+                }
+            }
+        }
+    }
 
-	public string getLatestUDPPacket(){
-		allReceivedUDPPackets = "";
-		return lastReceivedUDPPacket;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		hero.transform.position = new Vector3(xPos-6.0f,-3,0);
-		braveguy.transform.position = new Vector3(xPos2-6.0f,-3,0);
-	}
+    public string getLatestUDPPacket()
+    {
+        allReceivedUDPPackets = "";
+        return lastReceivedUDPPacket;
+    }
 
-	void OnApplicationQuit(){
-		if (receiveThread != null) {
-			receiveThread.Abort();
-			Debug.Log(receiveThread.IsAlive); //must be false
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        hero.transform.position = new Vector3(xPos - 6.0f, -3, 0);
+        braveguy.transform.position = new Vector3(xPos2 - 6.0f, -3, 0);
+    }
+
+    void OnApplicationQuit()
+    {
+        if (receiveThread != null)
+        {
+            receiveThread.Abort();
+            Debug.Log(receiveThread.IsAlive); //must be false
+        }
+    }
 }

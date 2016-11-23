@@ -14,7 +14,7 @@ print "UDP target port2:", UDP_PORT2
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
-
+                     
 cap = cv2.VideoCapture(0)
 
 #sets webcams' resolution
@@ -50,9 +50,9 @@ def findanddraw(_contours):
             cx = int(M['m10']/M['m00'])
             cy = int(M['m01']/M['m00'])
             #draws the mieddle of a contour        
-            cv2.circle(frame, (cx, cy), 7, (255, 255, 255), -1)
-            _cx = cx
-            return _cx
+            #cv2.circle(frame, (cx, cy), 7, (255, 255, 255), -1)
+            
+            return cx, cy 
         
 while(1):
 
@@ -94,9 +94,9 @@ while(1):
     
     
     cv2.imshow('frame',frame)
-    cv2.imshow('mask',mask)
+    #cv2.imshow('mask',mask)
 
-    cv2.imshow('maskJOINED', maskREDLOW + maskREDUP)
+    #cv2.imshow('maskRED', maskREDLOW + maskREDUP)
 
     k = cv2.waitKey(5) & 0xFF
     if k == 27:
