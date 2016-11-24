@@ -14,7 +14,7 @@ print "UDP target port2:", UDP_PORT2
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
-
+                     
 cap = cv2.VideoCapture(0)
 
 #sets webcams' resolution
@@ -50,15 +50,16 @@ def findanddraw(_contours):
             cx = int(M['m10']/M['m00'])
             cy = int(M['m01']/M['m00'])
             #draws the mieddle of a contour        
-            cv2.circle(frame, (cx, cy), 7, (255, 255, 255), -1)
-            _cx = cx
-            return _cx
+            #cv2.circle(frame, (cx, cy), 7, (255, 255, 255), -1)
+            
+            return str(cx)+","+str(cy)
         
 while(1):
 
     # Take each frame
     _, frame = cap.read()
     frame = cv2.medianBlur(frame,5)
+    frame=cv2.flip(frame,0)
     # Convert BGR to HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
@@ -66,37 +67,38 @@ while(1):
     lower_blue = np.array([90,70,150])
     upper_blue = np.array([140,254,254])
     
-    lower_red = np.array([0,130,70])
-    upper_red = np.array([5,254,254])
+    #lower_red = np.array([0,130,70])
+    #upper_red = np.array([5,254,254])
     
-    lower_redup = np.array([175,130,100])
-    upper_redup = np.array([180,254,254])
+    #lower_redup = np.array([175,130,100])
+    #upper_redup = np.array([180,254,254])
 
     # Threshold the HSV image to get only BLUE colors
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
     
     # Threshold the HSV image to get only RED colors
     #maskREDLOW = cv2.inRange(hsv, lower_red, upper_red)
-    maskREDLOW = cv2.inRange(hsv, lower_red, upper_red)
+    #maskREDLOW = cv2.inRange(hsv, lower_red, upper_red)
     
-    maskREDUP = cv2.inRange(hsv, lower_redup, upper_redup)
+    #maskREDUP = cv2.inRange(hsv, lower_redup, upper_redup)
 
     contours, hierarchy = cv2.findContours(mask,1,2)
 
-    contours2, hierarchy = cv2.findContours(maskREDLOW + maskREDUP,1,2)
+    #contours2, hierarchy = cv2.findContours(maskREDLOW + maskREDUP,1,2)
     
     #print "message:", str(findanddraw(_contours = contours))
     sock.sendto(str(findanddraw(_contours = contours)) , (UDP_IP, UDP_PORT))
     #print 'object 1', findanddraw(_contours = contours)
+    #print findanddraw(_contours = contours)
     
-    sock.sendto(str(findanddraw(_contours = contours2)) , (UDP_IP, UDP_PORT2))
+    #sock.sendto(str(findanddraw(_contours = contours2)) , (UDP_IP, UDP_PORT2))
     #print 'object 2', findanddraw(_contours = contours2)
     
     
-    cv2.imshow('frame',frame)
-    cv2.imshow('mask',mask)
+    #cv2.imshow('frame',frame)
+    #cv2.imshow('mask',mask)
 
-    cv2.imshow('maskJOINED', maskREDLOW + maskREDUP)
+    #cv2.imshow('maskRED', maskREDLOW + maskREDUP)
 
     k = cv2.waitKey(5) & 0xFF
     if k == 27:
