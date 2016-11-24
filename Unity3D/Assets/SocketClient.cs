@@ -125,10 +125,10 @@ public class SocketClient : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		hero.transform.position = new Vector3(xPos - 20.0f, yPos-4, -yPos);
+		hero.transform.position = new Vector3(xPos - 10.0f, yPos-4, 0);
 		braveguy.transform.position = new Vector3(xPos2 - 6.0f, yPos2-4, -yPos2);
 
-//		hero.transform.rotation = Quaternion.AngleAxis(yPos*30, Vector3.forward);
+		hero.transform.rotation = Quaternion.AngleAxis(yPos, Vector3.forward);
 //		braveguy.transform.rotation = Quaternion.AngleAxis(yPos2*30, Vector3.forward);
 
 
