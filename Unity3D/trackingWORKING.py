@@ -68,7 +68,7 @@ while(1):
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # define range of blue color in HSV
-    lower_blue = np.array([90,70,150])
+    lower_blue = np.array([90,70,100])
     upper_blue = np.array([140,254,254])
     
     lower_red = np.array([0,130,70])
