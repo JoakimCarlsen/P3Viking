@@ -20,7 +20,7 @@ public class SocketClient : MonoBehaviour
 
 	private static float yPos = 3.0f;
 	private static float yPos2 = 3.0f;
-
+	private float angle;
 	public int port;
 	public int port2;
 
@@ -125,10 +125,13 @@ public class SocketClient : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		angle = yPos2-yPos;
 		hero.transform.position = new Vector3(xPos - 10.0f, yPos-4, 0);
 		braveguy.transform.position = new Vector3(xPos2 - 6.0f, yPos2-4, -yPos2);
 
-		hero.transform.rotation = Quaternion.AngleAxis(yPos, Vector3.forward);
+		hero.transform.localEulerAngles = new Vector3 (-15 * angle,180,90);
+		
+		//hero.transform.rotation =∑ Quaternion.AngleAxis(yPos*30, Vector3.left);
 //		braveguy.transform.rotation = Quaternion.AngleAxis(yPos2*30, Vector3.forward);
 
 
