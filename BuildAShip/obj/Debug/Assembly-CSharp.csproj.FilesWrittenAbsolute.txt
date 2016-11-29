@@ -16,3 +16,22 @@
 /Users/Joakim 1/P3Viking/BuildAShip/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/Joakim 1/P3Viking/BuildAShip/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/Joakim 1/P3Viking/BuildAShip/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/obj/Debug/Assembly-CSharp.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/UnityEngine.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/UnityEditor.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/LeapCSharp.NET3.5.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Mono.Cecil.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Unity.DataContract.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/mikkelthynov/Desktop/BuildAShip-kopi/Temp/bin/Debug/Assembly-CSharp.dll

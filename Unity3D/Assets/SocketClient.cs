@@ -125,18 +125,19 @@ public class SocketClient : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		float newangle = yPos2-yPos;
-		//angle = Mathf.Clamp (angle, -30, 30);
+		float newangle = yPos-yPos2;
+		newangle = Mathf.Clamp (newangle, -30, 30);
 		//float SetAngle = Mathf.Lerp (tempangle, newangle, Time.deltaTime*2);
 
-		hero.transform.position = Vector3.Lerp (hero.transform.position, new Vector3 (xPos - 10.0f, yPos - 4, 0), Time.deltaTime*2);
+		hero.transform.position = Vector3.Lerp (hero.transform.position, new Vector3 (xPos - 10.0f, yPos - 4, 0), Time.deltaTime*4);
 		//hero.transform.position = new Vector3(xPos - 10.0f, yPos-4, 0);
 		braveguy.transform.position = new Vector3(xPos2 - 6.0f, yPos2-4, 0);
 
 		//hero.transform.localEulerAngles = new Vector3 (-15 * -SetAngle,0,0);
 		//hero.transform.rotation = Quaternion.Euler (new Vector3(-15 * SetAngle+45, 0f, 0f));
-		hero.transform.rotation = Quaternion.Lerp (hero.transform.rotation, Quaternion.Euler( new Vector3 (-15 * newangle + 45, 0f, 0f)), Time.deltaTime * 2);
-
+		hero.transform.rotation = Quaternion.Lerp (hero.transform.rotation, Quaternion.Euler( new Vector3 (-15 * newangle+55, 0f, 0f)), Time.deltaTime * 4);
+		print (newangle);
+//		-15 * newangle + 45
 		//hero.transform.rotation =∑ Quaternion.AngleAxis(yPos*30, Vector3.left);
 //		braveguy.transform.rotation = Quaternion.AngleAxis(yPos2*30, Vector3.forward);
 
