@@ -53,7 +53,7 @@ def findanddraw(_contours):
             cx = int(M['m10']/M['m00'])
             cy = int(M['m01']/M['m00'])
             #draws the mieddle of a contour        
-            #cv2.circle(frame, (cx, cy), 7, (255, 255, 255), -1)
+            #cv2.circle(frame, (cx, cy), 5, (255, 255, 255), -1)
             
             return str(cx)+","+str(cy)
         
@@ -68,8 +68,8 @@ while(1):
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # define range of blue color in HSV
-    lower_blue = np.array([90,70,100])
-    upper_blue = np.array([140,254,254])
+    lower_blue = np.array([25,82,100])
+    upper_blue = np.array([35,155,220])
     
     lower_red = np.array([0,130,70])
     upper_red = np.array([5,254,254])
