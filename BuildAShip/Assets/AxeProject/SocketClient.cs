@@ -83,6 +83,10 @@ public class SocketClient : MonoBehaviour
 					xPos *= 0.021818f;
 					yPos = float.Parse(parsedText[1]);
 					yPos *= 0.021818f;
+					xPos = (xPos / 20) - 0.5f;
+
+					yPos = (yPos / 20) + 1;
+
 				}
 				catch (Exception e)
 				{
@@ -110,6 +114,9 @@ public class SocketClient : MonoBehaviour
 					xPos2 *= 0.021818f;
 					yPos2 = float.Parse(parsedText[1]);
 					yPos2 *= 0.021818f;
+					xPos2= (xPos / 20)-0.5f;
+					yPos2 = (yPos2 / 20) + 1;
+
 				}
 				catch (Exception e)
 				{
@@ -129,12 +136,7 @@ public class SocketClient : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		xPos = (xPos / 20) - 0.5f;
-		xPos2= (xPos / 20)-0.5f;
-		yPos = (yPos / 20) + 1;
-		yPos2 = (yPos2 / 20) + 1;
-
-
+		
 		float newangle = (yPos-yPos2) *20;
 
 		//xPos = Mathf.Clamp (tempxPos, -0.1f, 0.1f);
@@ -154,8 +156,8 @@ public class SocketClient : MonoBehaviour
 		hero.transform.rotation = Quaternion.Lerp(hero.transform.rotation , newRotation , Time.deltaTime*2f);
 		//hero.transform.rotation = Quaternion.Lerp (hero.transform.rotation, Quaternion.Euler( new Vector3 (0f, 0f, 15 * (newangle) - 90)), Time.deltaTime * 4);
 
-		print ("X "+xPos);
-		print ("X2 "+xPos2);
+//		print ("X "+xPos);
+//		print ("X2 "+xPos2);
 
 		//print ("Y2 "+yPos2);
 		//		-15 * newangle + 45
