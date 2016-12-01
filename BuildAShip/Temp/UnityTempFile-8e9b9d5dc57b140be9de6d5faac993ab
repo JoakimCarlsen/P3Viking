@@ -198,6 +198,8 @@
 'Assets/LeapMotionModules/InteractionEngine/Scripts/Validation/InteractionBehaviourBaseValidation.cs'
 'Assets/LeapMotionModules/InteractionEngine/Scripts/Validation/InteractionBehaviourValidation.cs'
 'Assets/LeapMotionModules/InteractionEngine/Scripts/Validation/InteractionManagerValidation.cs'
+'Assets/Scripts/ChopWood.cs'
+'Assets/Scripts/GameController.cs'
 'Assets/Scripts/ratate.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'
