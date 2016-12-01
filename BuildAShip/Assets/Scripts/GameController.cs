@@ -59,6 +59,8 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds (10);
 		plankFire = false;
 		plankPlace = true;
+		yield return new WaitForSeconds (10);
+		plankPlace = false;
 
 	}
 }
