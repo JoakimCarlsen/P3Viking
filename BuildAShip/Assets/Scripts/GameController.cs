@@ -13,11 +13,6 @@ public class GameController : MonoBehaviour {
 
 	public ChopWood chopWoodScript;
 
-	public Transform Target;
-
-	public float smoothTime = 0.3F;
-	private Vector3 velocity = Vector3.zero;
-
 
 	// Use this for initialization
 	void Start () {
@@ -30,20 +25,19 @@ public class GameController : MonoBehaviour {
 	void Update () {
 
 		if (chopWoodScript.hitCount == 5) {
-			Log.gameObject.SetActive (false);
+//			Log.gameObject.SetActive (false);
 			Plank.gameObject.SetActive (true);
 			StartCoroutine(plankWait());
 
 		}
 
 		if (plankFree == true){
-			Vector3 targetPosition = Target.TransformPoint(new Vector3(8, 1, 10));
-			Target.transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+			
 
-			//Plank.transform.position = plankPos;
+			Plank.transform.position = plankPos;
 
 			Quaternion newRotation = Quaternion.identity;
-			newRotation.eulerAngles = new Vector3(25f, 90f, 90f);
+			newRotation.eulerAngles = new Vector3(0f, 0f, 75f);
 			Plank.transform.rotation = Quaternion.Lerp(Plank.transform.rotation , newRotation , Time.deltaTime*4f);
 		}
 	}
