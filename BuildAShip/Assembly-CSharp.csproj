@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\3D models\Campfire\Script\FireLightScript.cs" />
+     <Compile Include="Assets\3D models\Dynamic Flickering Light\FlickeringLight.cs" />
      <Compile Include="Assets\AxeProject\SocketClient.cs" />
      <Compile Include="Assets\AxeProject\pivot.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Algorithms\SlidingMax.cs" />
@@ -156,7 +158,9 @@
      <Compile Include="Assets\LeapMotionModules\InteractionEngine\Scripts\Validation\InteractionBehaviourValidation.cs" />
      <Compile Include="Assets\LeapMotionModules\InteractionEngine\Scripts\Validation\InteractionManagerValidation.cs" />
      <Compile Include="Assets\Scripts\ratate.cs" />
+     <None Include="Assets\3D models\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Plugins\donotdelete.txt" />
+     <None Include="Assets\3D models\Dynamic Flickering Light\readme.txt" />
      <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />
      <None Include="Assets\LeapMotion\README_BEFORE_UPDATING.txt" />
      <None Include="Assets\LeapMotion\readme.txt" />
@@ -166,6 +170,7 @@
      <None Include="Assets\LeapMotion\Resources\PassthroughForeground.shader" />
      <None Include="Assets\LeapMotion\Resources\PassthroughBackground.shader" />
      <None Include="Assets\LeapMotion\Version.txt" />
+     <None Include="Assets\3D models\Campfire\License.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

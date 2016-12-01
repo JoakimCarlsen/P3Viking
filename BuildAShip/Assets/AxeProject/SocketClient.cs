@@ -142,7 +142,7 @@ public class SocketClient : MonoBehaviour
 		//xPos = Mathf.Clamp (tempxPos, -0.1f, 0.1f);
 		//float SetAngle = Mathf.Lerp (tempangle, newangle, Time.deltaTime*2);
 
-		Vector3 newVector = new Vector3 (-48.0f, yPos, xPos);
+		Vector3 newVector = new Vector3 (-21.5f, yPos-2, xPos);
 		Quaternion newRotation = Quaternion.identity;
 
 		newRotation.eulerAngles = new Vector3 (0f, 0f, 15 * (newangle) - 90);
@@ -153,7 +153,7 @@ public class SocketClient : MonoBehaviour
 		//braveguy.transform.position = new Vector3(xPos2 - 6.0f, yPos2-4, 0);
 
 		//hero.transform.localEulerAngles = new Vector3 (-15 * -SetAngle,0,0);
-		hero.transform.rotation = Quaternion.Lerp(hero.transform.rotation , newRotation , Time.deltaTime*2f);
+		hero.transform.rotation = Quaternion.Lerp(hero.transform.rotation , newRotation , Time.deltaTime*4f);
 		//hero.transform.rotation = Quaternion.Lerp (hero.transform.rotation, Quaternion.Euler( new Vector3 (0f, 0f, 15 * (newangle) - 90)), Time.deltaTime * 4);
 
 //		print ("X "+xPos);
