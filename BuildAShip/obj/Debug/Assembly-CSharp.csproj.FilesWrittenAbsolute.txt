@@ -54,3 +54,4 @@
 /Users/mikkelthynov/P3Viking/BuildAShip/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/mikkelthynov/P3Viking/BuildAShip/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/mikkelthynov/P3Viking/BuildAShip/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/Joakim 1/P3Viking/BuildAShip/Temp/bin/Debug/LeapCSharp.NET3.5.dll

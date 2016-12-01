@@ -144,7 +144,6 @@ public class SocketClient : MonoBehaviour
 
 		Vector3 newVector = new Vector3 (-21.5f, yPos-2, xPos*6);
 		Quaternion newRotation = Quaternion.identity;
-
 		newRotation.eulerAngles = new Vector3 (0f, 0f, 15 * (newangle) - 90);
 
 		hero.transform.position = newVector;
