@@ -6,6 +6,7 @@ public class snapObject : MonoBehaviour {
     public GameObject moveObject;
     public GameObject handleObject;
     public Vector3 snapPosition;
+
     public string hitObjectName;
     public string handleName;
     public string ownName;
@@ -21,6 +22,7 @@ public class snapObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         
 	}
 
