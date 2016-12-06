@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
         if (plankFire == true)
         {
 
-            Vector3 newPosition = new Vector3(-5f, 0.5f, 10f);
+            Vector3 newPosition = new Vector3(-1.5f, 0.5f, -13.5f);
 
             Quaternion newRotation = Quaternion.identity;
             newRotation.eulerAngles = new Vector3(0f, 0f, 75f);
@@ -118,7 +118,7 @@ public class GameController : MonoBehaviour
         }
 
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.2f);
         partPlace = false;
 
         if (leapCount <= 9 && oneLeapCount == false)

@@ -181,8 +181,10 @@
     <Compile Include="Assets\LeapMotionModules\InteractionEngine\Scripts\Validation\InteractionBehaviourBaseValidation.cs" />
     <Compile Include="Assets\LeapMotionModules\InteractionEngine\Scripts\Validation\InteractionBehaviourValidation.cs" />
     <Compile Include="Assets\LeapMotionModules\InteractionEngine\Scripts\Validation\InteractionManagerValidation.cs" />
+    <Compile Include="Assets\Scripts\Animation.cs" />
     <Compile Include="Assets\Scripts\ChopWood.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\ReloadAndExit.cs" />
     <Compile Include="Assets\Scripts\ratate.cs" />
     <Compile Include="Assets\Scripts\snapObject.cs" />
   </ItemGroup>
