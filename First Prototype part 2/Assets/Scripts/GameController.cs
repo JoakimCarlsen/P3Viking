@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
     {
         
         
-        if (chopWoodScript.hitCount == 3 && oneItem == true)
+        if (chopWoodScript.hitCount == 7 && oneItem == true)
         {
             //			Log.gameObject.SetActive (false);
             Plank.gameObject.SetActive(true);
@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
         if (plankFire == true)
         {
 
-            Vector3 newPosition = new Vector3(-1.5f, 0.5f, -13.5f);
+            Vector3 newPosition = new Vector3(-1.5f, 0.5f, -10f);
 
             Quaternion newRotation = Quaternion.identity;
             newRotation.eulerAngles = new Vector3(0f, 0f, 75f);
@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
         if (plankFire == false)
         {
 
-            Vector3 newPosition = new Vector3(-20.2f, -0.42f, -3.61f);
+            Vector3 newPosition = new Vector3(-20.2f, -0.42f, -6.21f);
 
             Quaternion newRotation = Quaternion.identity;
             newRotation.eulerAngles = new Vector3(90f, 0f, 0f);

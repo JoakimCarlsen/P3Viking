@@ -31,7 +31,7 @@ def findanddraw(_contours):
     
     contours = _contours
     
-    for c in contours:
+    for c in contours:r
         areas = [cv2.contourArea(c) for c in contours]
         
         # finds the biggest contour
