@@ -68,30 +68,59 @@ while(1):
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
     # define range of blue color in HSV
+    
+    #FIRST COLOURS
    # lower_green = np.array([35,115,140])
    # upper_green = np.array([45,140,210])
     
-    lower_blue = np.array([110,150,50])
-    upper_blue = np.array([140,254,254])
+    #lower_blue = np.array([110,150,50])
+    #upper_blue = np.array([140,254,254])
     
-    lower_red = np.array([0,150,50])
-    upper_red = np.array([5,254,150])
+    #lower_red = np.array([0,150,50])
+    #upper_red = np.array([5,254,150])
     
-    lower_redup = np.array([175,150,50])
-    upper_redup = np.array([180,254,150])
-
+    #lower_redup = np.array([175,150,50])
+    #upper_redup = np.array([180,254,150])
+    
+    
+    #NEW COLOURS
+    # Meassured Colour: 111, 229.5, 107.1
+    #lower_blue2 = np.array([75,225,50])
+    #upper_blue2 = np.array([120,235,180])
+    
+    # Meassured Colour: 152, 122.4, 117.3
+    lower_purple = np.array([120,45,25])
+    upper_purple = np.array([145,255,255])
+    
+    # Meassured Colour: 101, 209.1, 91.8
+    #lower_greenIsh = np.array([95,155,45])
+    #upper_greenIsh = np.array([106,245,165])
+    
+    # Meassured Colour: 174, 226.9, 170.8
+    #lower_red2 = np.array([170,220,165])
+    #upper_red2 = np.array([180,230, 175])
+    
+    # Meassured Colour: 165.5, 137.7, 198.9
+    lower_pink = np.array([155,90,90])
+    upper_pink = np.array([175,170,255])
+    
+    
 
     # Threshold the HSV image to get only BLUE colors
-    mask = cv2.inRange(hsv, lower_blue, upper_blue)
+    #mask = cv2.inRange(hsv, lower_blue, upper_blue)
+    mask = cv2.inRange(hsv, lower_pink, upper_pink)
+
     
     # Threshold the HSV image to get only RED colors
-    maskREDLOW = cv2.inRange(hsv, lower_red, upper_red)
-    
-    maskREDUP = cv2.inRange(hsv, lower_redup, upper_redup)
+    #maskREDLOW = cv2.inRange(hsv, lower_red, upper_red)
+    #maskREDUP = cv2.inRange(hsv, lower_redup, upper_redup)
+    mask2 = cv2.inRange(hsv, lower_purple, upper_purple)
 
     contours, hierarchy = cv2.findContours(mask,1,2)
 
-    contours2, hierarchy = cv2.findContours(maskREDLOW + maskREDUP,1,2)
+    contours2, hierarchy = cv2.findContours(mask2,1,2)
+
+    #contours2, hierarchy = cv2.findContours(maskREDLOW + maskREDUP,1,2)
     
     #print "message:", str(findanddraw(_contours = contours))
     sock.sendto(str(findanddraw(_contours = contours)) , (UDP_IP, UDP_PORT))
