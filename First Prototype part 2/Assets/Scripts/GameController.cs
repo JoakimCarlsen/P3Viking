@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     public GameObject Plank;
     public GameObject Group1;
 
+
     public GameObject[] parts;
     public GameObject[] leapParts;
 
@@ -15,10 +16,10 @@ public class GameController : MonoBehaviour
     private int leapCount = -1;
 
     bool plankFire = false;
-    bool partPlace = false;
+    public bool partPlace = false;
     bool oneCount = false;
     bool oneLeapCount = false;
-    bool oneItem = true;
+   public bool oneItem = true;
 
     bool partIsThere = false;
     bool partToLeapPart = false;
@@ -37,7 +38,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
+        
         if (chopWoodScript.hitCount == 3 && oneItem == true)
         {
             //			Log.gameObject.SetActive (false);
@@ -68,11 +70,13 @@ public class GameController : MonoBehaviour
             Plank.transform.rotation = newRotation;
 
             Plank.transform.position = newPosition;
+            
         }
 
         // Move plank to leap motion
         if (partPlace == true)
         {
+            Plank.gameObject.SetActive(false);
             Vector3 newPosition = new Vector3(20f, -0.5f, -3.61f);
 
             Quaternion newRotation = Quaternion.identity;
@@ -80,6 +84,7 @@ public class GameController : MonoBehaviour
             parts[partCount].transform.rotation = Quaternion.Lerp(parts[partCount].transform.rotation, newRotation, Time.deltaTime * 0.5f);
 
             parts[partCount].transform.position = Vector3.Lerp(parts[partCount].transform.position, newPosition, Time.deltaTime * 0.5f);
+            
         }
 
         if (partIsThere == true)
@@ -130,9 +135,9 @@ public class GameController : MonoBehaviour
         partIsThere = false;
 
 
-        chopWoodScript.hitCount = 0;
+       
         oneCount = false;
-        oneItem = true;
+        //oneItem = true;
 
         yield return new WaitForSeconds(1);
         oneLeapCount = false;

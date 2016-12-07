@@ -3,6 +3,7 @@ using System.Collections;
 using Leap.Unity.Interaction;
 
 public class snapObject : MonoBehaviour {
+    public GameObject gameController; 
     public GameObject moveObject;
     public GameObject handleObject;
     public Vector3 snapPosition;
@@ -17,6 +18,7 @@ public class snapObject : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         moveObject = GameObject.Find(ownName);
+        gameController = GameObject.Find("ScriptManager");
         
     }
 	
@@ -34,7 +36,7 @@ public class snapObject : MonoBehaviour {
             isHit = true;
             if(isHit == true)
             {
-                
+                gameController.GetComponent<GameController>().oneItem = true; 
                 handleObject = GameObject.Find(handleName);
                 transform.DetachChildren();
                 Destroy(handleObject);
