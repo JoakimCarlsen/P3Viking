@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
     {
         
         
-        if (chopWoodScript.hitCount == 7 && oneItem == true)
+        if (chopWoodScript.hitCount == 5 && oneItem == true)
         {
             //			Log.gameObject.SetActive (false);
             Plank.gameObject.SetActive(true);

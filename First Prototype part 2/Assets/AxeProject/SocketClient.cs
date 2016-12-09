@@ -132,27 +132,33 @@ public class SocketClient : MonoBehaviour
 		return lastReceivedUDPPacket;
 	}
 		
-	//float tempxPos;
+	float tempxPos;
 	// Update is called once per frame
 	void Update()
 	{
 		
 		float newangle = (yPos-yPos2) *20;
+        //float newangle = 15 * ((yPos - yPos2) * 20) - 90;
+        //-25, -95
+        //newangle = Mathf.Clamp(newangle, 0.5f, 8f);
+        //float SetAngle = Mathf.Lerp (tempangle, newangle, Time.deltaTime*2);
 
-		//xPos = Mathf.Clamp (tempxPos, -0.1f, 0.1f);
-		//float SetAngle = Mathf.Lerp (tempangle, newangle, Time.deltaTime*2);
-
-		Vector3 newVector = new Vector3 (-21.5f, yPos-1.2f, xPos*12);
+        Vector3 newVector = new Vector3 (-21.5f, yPos-1.2f, xPos*12);
 		Quaternion newRotation = Quaternion.identity;
 		newRotation.eulerAngles = new Vector3 (0f, 0f, 15 * (newangle) - 90);
 
-		hero.transform.position = newVector;
+        print(15*(newangle)-90);
+        newangle = Mathf.Clamp(newangle, 0.5f, 8f);
+
+        hero.transform.position = Vector3.Lerp(hero.transform.position, newVector, Time.deltaTime);
 
 		//hero.transform.position = new Vector3(xPos - 10.0f, yPos-4, 0);
 		//braveguy.transform.position = new Vector3(xPos2 - 6.0f, yPos2-4, 0);
 
 		//hero.transform.localEulerAngles = new Vector3 (-15 * -SetAngle,0,0);
+
 		hero.transform.rotation = Quaternion.Lerp(hero.transform.rotation , newRotation , Time.deltaTime*4f);
+
 		//hero.transform.rotation = Quaternion.Lerp (hero.transform.rotation, Quaternion.Euler( new Vector3 (0f, 0f, 15 * (newangle) - 90)), Time.deltaTime * 4);
 
 //		print ("X "+xPos);
@@ -165,7 +171,7 @@ public class SocketClient : MonoBehaviour
 
 		//tempRotation = newRotation;
 		//tempVector = newVector;
-		//tempxPos=xPos;
+		tempxPos=xPos;
 	}
 
 	void OnApplicationQuit()

@@ -16,7 +16,7 @@ sock = socket.socket(socket.AF_INET, # Internet
 
 time.sleep(2)
                         
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
 
 time.sleep(2)
 
@@ -31,7 +31,7 @@ def findanddraw(_contours):
     
     contours = _contours
     
-    for c in contours:r
+    for c in contours:
         areas = [cv2.contourArea(c) for c in contours]
         
         # finds the biggest contour
@@ -63,7 +63,7 @@ while(1):
     _, frame = cap.read()
     frame = cv2.medianBlur(frame,5)
     #Flips screen upsidedown
-    frame=cv2.flip(frame,0)
+    frame=cv2.flip(frame,1)
     # Convert BGR to HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
@@ -84,25 +84,20 @@ while(1):
     
     
     #NEW COLOURS
-    # Meassured Colour: 111, 229.5, 107.1
     #lower_blue2 = np.array([75,225,50])
     #upper_blue2 = np.array([120,235,180])
     
-    # Meassured Colour: 152, 122.4, 117.3
-    lower_purple = np.array([120,45,25])
-    upper_purple = np.array([145,255,255])
+    lower_purple = np.array([130,70,80])
+    upper_purple = np.array([145,115,180])
     
-    # Meassured Colour: 101, 209.1, 91.8
     #lower_greenIsh = np.array([95,155,45])
     #upper_greenIsh = np.array([106,245,165])
     
-    # Meassured Colour: 174, 226.9, 170.8
     #lower_red2 = np.array([170,220,165])
     #upper_red2 = np.array([180,230, 175])
     
-    # Meassured Colour: 165.5, 137.7, 198.9
-    lower_pink = np.array([155,90,90])
-    upper_pink = np.array([175,170,255])
+    lower_pink = np.array([150,60,140])
+    upper_pink = np.array([165,180,255])
     
     
 

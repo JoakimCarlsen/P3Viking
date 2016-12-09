@@ -29,7 +29,7 @@ public class Animation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(chopWoodScript.hitCount == 7 && gameControllerScript.oneItem == false){
+		if(chopWoodScript.hitCount == 5 && gameControllerScript.oneItem == false){
             
 			SplitWoodAnim.SetBool(IsHitID, true);
             SplitWoodAnim.SetBool(resetID, false);
