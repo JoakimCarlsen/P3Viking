@@ -8,15 +8,18 @@ public class snapObject : MonoBehaviour {
     public GameObject handleObject;
     public Vector3 snapPosition;
 
+
     public string hitObjectName;
     public string handleName;
     public string ownName;
     public bool isHit = false;
+    Vector3 plankPosition = new Vector3(-20.2f, -0.42f, -6.21f);
+    Quaternion newRotation = Quaternion.identity;
     
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         moveObject = GameObject.Find(ownName);
         gameController = GameObject.Find("ScriptManager");
         
@@ -32,14 +35,18 @@ public class snapObject : MonoBehaviour {
     {
         if (target.gameObject.tag.Equals(hitObjectName))
         {
+
             moveObject.transform.position = snapPosition;
             isHit = true;
             if(isHit == true)
             {
+                
                 gameController.GetComponent<GameController>().oneItem = true; 
                 handleObject = GameObject.Find(handleName);
                 transform.DetachChildren();
                 Destroy(handleObject);
+                GameController.ResetPlank = true;
+
             }
             print("It hit");
         }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d8b3dac5e4710a9419db3d4d5d7badb1
-timeCreated: 1480713845
+timeCreated: 1480941139
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -59,7 +59,7 @@ SubstanceImporter:
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 0.1, y: 0.1}
+      scale: {x: 0.05, y: 0.05}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 42
@@ -70,7 +70,7 @@ SubstanceImporter:
           name: _BumpMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0.1}
+          scale: {x: 0.05, y: 0}
           offset: {x: 0, y: 0}
       - first:
           name: _DetailAlbedoMap
@@ -94,31 +94,31 @@ SubstanceImporter:
           name: _EmissionMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0.1}
+          scale: {x: 0.05, y: 0.05}
           offset: {x: 0, y: 0}
       - first:
           name: _MainTex
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0.1}
+          scale: {x: 0.05, y: 0.05}
           offset: {x: 0, y: 0}
       - first:
           name: _MetallicGlossMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0.1}
+          scale: {x: 0.05, y: 0}
           offset: {x: 0, y: 0}
       - first:
           name: _OcclusionMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0.1}
+          scale: {x: 0.05, y: 0}
           offset: {x: 0, y: 0}
       - first:
           name: _ParallaxMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0.1}
+          scale: {x: 0.05, y: 0}
           offset: {x: 0, y: 0}
       floats:
       - first:
@@ -135,7 +135,7 @@ SubstanceImporter:
         second: 0
       - first:
           name: _GlossMapScale
-        second: 1
+        second: 0.066
       - first:
           name: _Glossiness
         second: 0.5
@@ -153,7 +153,7 @@ SubstanceImporter:
         second: 1
       - first:
           name: _Parallax
-        second: 0.02
+        second: 0.0393
       - first:
           name: _SmoothnessTextureChannel
         second: 0
@@ -172,7 +172,7 @@ SubstanceImporter:
       colors:
       - first:
           name: _Color
-        second: {r: 0.33088237, g: 0.2776593, b: 0.18247189, a: 1}
+        second: {r: 0.14705884, g: 0.06085193, b: 0, a: 1}
       - first:
           name: _EmissionColor
         second: {r: 0, g: 0, b: 0, a: 1}

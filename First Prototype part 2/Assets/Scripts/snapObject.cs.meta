@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 95f91e0ee0f0252418f4a17e2df46d5f
-timeCreated: 1480769367
+timeCreated: 1481280944
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameController: {instanceID: 0}
+  - moveObject: {instanceID: 0}
+  - handleObject: {instanceID: 0}
+  - Plank: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

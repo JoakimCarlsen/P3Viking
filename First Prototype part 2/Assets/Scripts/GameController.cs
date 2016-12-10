@@ -7,11 +7,14 @@ public class GameController : MonoBehaviour
     public GameObject Log;
     public GameObject Plank;
     public GameObject Group1;
-
-
+    public GameObject Steam;
+    public GameObject sthalf;
+    public GameObject ndhalf;
     public GameObject[] parts;
     public GameObject[] leapParts;
+    public GameObject UpperShip;
 
+    public static bool ResetPlank = false;
     private int partCount = -1;
     private int leapCount = -1;
 
@@ -20,9 +23,10 @@ public class GameController : MonoBehaviour
     bool oneCount = false;
     bool oneLeapCount = false;
    public bool oneItem = true;
-
+    public bool BuildDone = false;
     bool partIsThere = false;
     bool partToLeapPart = false;
+    Vector3 UpperShipdown = new Vector3(0.04896355f, 0.8f, -3.5f);
 
     public ChopWood chopWoodScript;
 
@@ -38,20 +42,21 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+
         if (chopWoodScript.hitCount == 5 && oneItem == true)
         {
             //			Log.gameObject.SetActive (false);
-            Plank.gameObject.SetActive(true);
+            
             StartCoroutine(plankWait());
             oneItem = false;
         }
         // move plank to fire
         if (plankFire == true)
         {
-
-            Vector3 newPosition = new Vector3(-1.5f, 0.5f, -10f);
+            sthalf.SetActive(false);
+            ndhalf.SetActive(false);
+            Vector3 newPosition = new Vector3(-1.5f, 0.5f, -15f);
 
             Quaternion newRotation = Quaternion.identity;
             newRotation.eulerAngles = new Vector3(0f, 0f, 75f);
@@ -60,88 +65,77 @@ public class GameController : MonoBehaviour
             Plank.transform.position = Vector3.Lerp(Plank.transform.position, newPosition, Time.deltaTime * 0.5f);
         }
 
-        if (plankFire == false)
+
+
+        if (plankFire == false && oneItem == true)
         {
 
+            Plank.SetActive(true);
             Vector3 newPosition = new Vector3(-20.2f, -0.42f, -6.21f);
-
             Quaternion newRotation = Quaternion.identity;
             newRotation.eulerAngles = new Vector3(90f, 0f, 0f);
+            
             Plank.transform.rotation = newRotation;
 
             Plank.transform.position = newPosition;
-            
+            sthalf.SetActive(true);
+            ndhalf.SetActive(true);
         }
 
-        // Move plank to leap motion
+        // Move part to leap motion
         if (partPlace == true)
         {
             Plank.gameObject.SetActive(false);
-            Vector3 newPosition = new Vector3(20f, -0.5f, -3.61f);
+            Vector3 restPosition = new Vector3(11.54f, 0.73f, -9.51f);
+            Quaternion restRotation = Quaternion.identity;
 
-            Quaternion newRotation = Quaternion.identity;
-            newRotation.eulerAngles = new Vector3(0f, 90f, 90f);
-            parts[partCount].transform.rotation = Quaternion.Lerp(parts[partCount].transform.rotation, newRotation, Time.deltaTime * 0.5f);
-
-            parts[partCount].transform.position = Vector3.Lerp(parts[partCount].transform.position, newPosition, Time.deltaTime * 0.5f);
+            restRotation.eulerAngles = new Vector3(0f, 0f, 0f);
+            leapParts[partCount].transform.rotation = Quaternion.Lerp(leapParts[partCount].transform.rotation, restRotation, Time.deltaTime * 1f);
+            leapParts[partCount].transform.position = Vector3.Lerp(leapParts[partCount].transform.position, restPosition, Time.deltaTime * 1f);
             
         }
 
-        if (partIsThere == true)
+        if (BuildDone == true)
         {
-            
-             parts[partCount].SetActive(true);
+            UpperShip.transform.position = Vector3.Lerp(UpperShip.transform.position, UpperShipdown, Time.deltaTime * 0.5f);
         }
 
-        if (partToLeapPart == true)
-        {
-            parts[leapCount].SetActive(false);
-            leapParts[leapCount].SetActive(true);
-        }
-
-        //print ("Part Count : " + partCount);
-        print("Leap Count : " + leapCount);
     }
+
 
     IEnumerator plankWait()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(1f);
         plankFire = true;
-
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(4);
+        Steam.SetActive(true);
+        
+        yield return new WaitForSeconds(3);
+        
         plankFire = false;
-        partIsThere = true;
+        Steam.SetActive(false);
 
-
-        yield return new WaitForSeconds(1);
-        partPlace = true;
 
         if (partCount <= 9 && oneCount == false)
         {
             partCount += 1;
             oneCount = true;
         }
+        leapParts[partCount].SetActive(true);
 
 
         yield return new WaitForSeconds(0.2f);
+        partPlace = true;
+        yield return new WaitForSeconds(3f);
         partPlace = false;
-
-        if (leapCount <= 9 && oneLeapCount == false)
-        {
-            leapCount += 1;
-            oneLeapCount = true;
-        }
-        partToLeapPart = true;
-        partIsThere = false;
-
-
-       
         oneCount = false;
-        //oneItem = true;
 
-        yield return new WaitForSeconds(1);
-        oneLeapCount = false;
-
-
+        if (partCount == 8)
+        {
+            BuildDone = true;
+            yield return new WaitForSeconds(10f);
+            BuildDone = false;
+        }
+        
     }
 }

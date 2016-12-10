@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 585f8675b9a57ed46bc24614356b65f3
-timeCreated: 1480716107
+timeCreated: 1480951859
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -101,7 +101,7 @@ SubstanceImporter:
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 1, y: 1}
+      scale: {x: 0.1, y: 0.1}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 42
@@ -112,7 +112,7 @@ SubstanceImporter:
           name: _BumpMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 0.1, y: 0}
           offset: {x: 0, y: 0}
       - first:
           name: _DetailAlbedoMap
@@ -136,31 +136,31 @@ SubstanceImporter:
           name: _EmissionMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 0.1, y: 0.1}
           offset: {x: 0, y: 0}
       - first:
           name: _MainTex
         second:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 0.1, y: 0.1}
           offset: {x: 0, y: 0}
       - first:
           name: _MetallicGlossMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 0.1, y: 0}
           offset: {x: 0, y: 0}
       - first:
           name: _OcclusionMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 0.1, y: 0}
           offset: {x: 0, y: 0}
       - first:
           name: _ParallaxMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 1, y: 1}
+          scale: {x: 0.1, y: 0}
           offset: {x: 0, y: 0}
       floats:
       - first:
@@ -177,7 +177,7 @@ SubstanceImporter:
         second: 0
       - first:
           name: _GlossMapScale
-        second: 0.062
+        second: 0
       - first:
           name: _Glossiness
         second: 0.5
@@ -217,7 +217,7 @@ SubstanceImporter:
         second: {r: 1, g: 1, b: 1, a: 1}
       - first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 0.1397059, g: 0.1397059, b: 0.1397059, a: 1}
     textureParameters:
     - name: fabric_cotton_basecolor
       alphaSource: 6

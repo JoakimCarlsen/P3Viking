@@ -16,7 +16,7 @@ sock = socket.socket(socket.AF_INET, # Internet
 
 time.sleep(2)
                         
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0)
 
 time.sleep(2)
 
