@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class GameController : MonoBehaviour
@@ -10,14 +11,16 @@ public class GameController : MonoBehaviour
     public GameObject Steam;
     public GameObject sthalf;
     public GameObject ndhalf;
+    public GameObject currentlyMesh; 
     public GameObject[] parts;
     public GameObject[] leapParts;
     public GameObject UpperShip;
+    public Material[] materialsOutline; 
 
     public static bool ResetPlank = false;
     private int partCount = -1;
     private int leapCount = -1;
-
+    
     bool plankFire = false;
     public bool partPlace = false;
     bool oneCount = false;
@@ -42,7 +45,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
 
         if (chopWoodScript.hitCount == 5 && oneItem == true)
         {
@@ -98,6 +101,7 @@ public class GameController : MonoBehaviour
         if (BuildDone == true)
         {
             UpperShip.transform.position = Vector3.Lerp(UpperShip.transform.position, UpperShipdown, Time.deltaTime * 0.5f);
+            StartCoroutine(changeShip());
         }
 
     }
@@ -122,20 +126,23 @@ public class GameController : MonoBehaviour
             oneCount = true;
         }
         leapParts[partCount].SetActive(true);
-
+        leapParts[partCount].GetComponentInChildren<MeshRenderer>().material = materialsOutline[1];
 
         yield return new WaitForSeconds(0.2f);
         partPlace = true;
         yield return new WaitForSeconds(3f);
         partPlace = false;
         oneCount = false;
-
-        if (partCount == 8)
-        {
-            BuildDone = true;
-            yield return new WaitForSeconds(10f);
-            BuildDone = false;
-        }
         
+        
+    }
+
+    IEnumerator changeShip()
+    {
+      
+
+            yield return new WaitForSeconds(10);
+            SceneManager.LoadScene(1);
+       
     }
 }
