@@ -16,7 +16,7 @@ sock = socket.socket(socket.AF_INET, # Internet
 
 time.sleep(2)
                         
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 time.sleep(2)
 
@@ -87,7 +87,7 @@ while(1):
     #lower_blue2 = np.array([75,225,50])
     #upper_blue2 = np.array([120,235,180])
     
-    lower_purple = np.array([130,70,80])
+    lower_purple = np.array([125,70,60])
     upper_purple = np.array([145,115,180])
     
     #lower_greenIsh = np.array([95,155,45])
@@ -96,7 +96,7 @@ while(1):
     #lower_red2 = np.array([170,220,165])
     #upper_red2 = np.array([180,230, 175])
     
-    lower_pink = np.array([150,60,140])
+    lower_pink = np.array([145,50,120])
     upper_pink = np.array([165,180,255])
     
     

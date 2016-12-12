@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject currentlyMesh; 
     public GameObject[] parts;
     public GameObject[] leapParts;
+    public GameObject[] meshParts;
     public GameObject UpperShip;
     public Material[] materialsOutline; 
 
@@ -45,7 +46,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+
+        }
+
 
         if (chopWoodScript.hitCount == 5 && oneItem == true)
         {
@@ -96,6 +101,7 @@ public class GameController : MonoBehaviour
             leapParts[partCount].transform.rotation = Quaternion.Lerp(leapParts[partCount].transform.rotation, restRotation, Time.deltaTime * 1f);
             leapParts[partCount].transform.position = Vector3.Lerp(leapParts[partCount].transform.position, restPosition, Time.deltaTime * 1f);
             
+
         }
 
         if (BuildDone == true)
@@ -104,6 +110,18 @@ public class GameController : MonoBehaviour
             StartCoroutine(changeShip());
         }
 
+        if (leapParts[partCount].transform.position.z >= -10 && leapParts[partCount].transform.position.z <= -9.45)
+        {
+            meshParts[partCount].GetComponent<MeshRenderer>().material = materialsOutline[1];
+        }
+        else
+        {
+            meshParts[partCount].GetComponent<MeshRenderer>().material = materialsOutline[0];
+        }
+
+        parts[partCount].transform.position = new Vector3(leapParts[partCount].transform.position.x - 12, leapParts[partCount].transform.position.y, leapParts[partCount].transform.position.z); 
+        
+
     }
 
 
@@ -111,14 +129,14 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         plankFire = true;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         Steam.SetActive(true);
         
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(4);
         
         plankFire = false;
         Steam.SetActive(false);
-
+         
 
         if (partCount <= 9 && oneCount == false)
         {
@@ -126,9 +144,13 @@ public class GameController : MonoBehaviour
             oneCount = true;
         }
         leapParts[partCount].SetActive(true);
-        leapParts[partCount].GetComponentInChildren<MeshRenderer>().material = materialsOutline[1];
+   
+
+
 
         yield return new WaitForSeconds(0.2f);
+
+        
         partPlace = true;
         yield return new WaitForSeconds(3f);
         partPlace = false;

@@ -6,7 +6,6 @@ public class Floater : MonoBehaviour {
 	public Vector3 buoyancyCentreOffset;
     public Vector3 buoyancyCentreOffset2;
     public float bounceDamp;
-    float count=-0.010f;
 	
 
 	void FixedUpdate () {
@@ -21,10 +20,6 @@ public class Floater : MonoBehaviour {
         {
             Vector3 uplift = -Physics.gravity * (forceFactor - GetComponent<Rigidbody>().velocity.y * bounceDamp);
 
-            Vector3 uplift2 = -Physics.gravity * (forceFactor - GetComponent<Rigidbody>().velocity.y * bounceDamp);
-                GetComponent<Rigidbody>().AddForceAtPosition(uplift2, actionPoint);
-                
-            
             GetComponent<Rigidbody>().AddForceAtPosition(uplift, actionPoint2);
         }
             

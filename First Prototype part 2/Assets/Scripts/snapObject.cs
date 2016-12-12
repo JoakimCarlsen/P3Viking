@@ -31,7 +31,7 @@ public class snapObject : MonoBehaviour {
 	void Update () {
 
         if(handleObject.gameObject.GetComponent<MeshRenderer>().enabled == true) {
-            handleObject.transform.position = new Vector3(11.54f, 0.73f, -9.51f);
+            
             handleObject.gameObject.GetComponent<MeshRenderer>().enabled = false; 
         }
         
