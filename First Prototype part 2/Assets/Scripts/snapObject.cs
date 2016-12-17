@@ -48,7 +48,6 @@ public class snapObject : MonoBehaviour {
             {
                 partCounter++; 
                 gameController.GetComponent<GameController>().oneItem = true; 
-                handleObject = GameObject.Find(handleName);
                 transform.DetachChildren();
                 Destroy(handleObject);
                 GameController.ResetPlank = true;

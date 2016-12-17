@@ -42,9 +42,10 @@ public class SocketClient : MonoBehaviour
 
 	public void Start()
 	{
-
-		init(port);
+    
+		init(port);   
 		init(port2);
+     
 	}
 
 	void init(int _port)
@@ -173,7 +174,7 @@ public class SocketClient : MonoBehaviour
 		//tempVector = newVector;
 		tempxPos=xPos;
 	}
-
+    
 	void OnApplicationQuit()
 	{
 		if (receiveThread != null)
@@ -181,5 +182,5 @@ public class SocketClient : MonoBehaviour
 			receiveThread.Abort();
 			Debug.Log(receiveThread.IsAlive); //must be false
 		}
-	}
+	} 
 }

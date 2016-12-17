@@ -16,13 +16,14 @@ public class GameController : MonoBehaviour
     public GameObject[] leapParts;
     public GameObject[] meshParts;
     public GameObject UpperShip;
+    public GameObject socketClient;
     public Material[] materialsOutline; 
 
     public static bool ResetPlank = false;
     private int partCount = -1;
     private int leapCount = -1;
     
-    bool plankFire = false;
+    public bool plankFire = false;
     public bool partPlace = false;
     bool oneCount = false;
     bool oneLeapCount = false;
@@ -38,7 +39,7 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        
         chopWoodScript = Group1.GetComponent<ChopWood>();
 
     }
@@ -46,11 +47,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-
-        }
-
+        
 
         if (chopWoodScript.hitCount == 5 && oneItem == true)
         {
@@ -129,11 +126,10 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         plankFire = true;
+
         yield return new WaitForSeconds(5);
         Steam.SetActive(true);
-        
         yield return new WaitForSeconds(4);
-        
         plankFire = false;
         Steam.SetActive(false);
          

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 585f8675b9a57ed46bc24614356b65f3
-timeCreated: 1480951859
+timeCreated: 1481580867
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -112,7 +112,7 @@ SubstanceImporter:
           name: _BumpMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0}
+          scale: {x: 0.1, y: 0.1}
           offset: {x: 0, y: 0}
       - first:
           name: _DetailAlbedoMap
@@ -148,19 +148,19 @@ SubstanceImporter:
           name: _MetallicGlossMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0}
+          scale: {x: 0.1, y: 0.1}
           offset: {x: 0, y: 0}
       - first:
           name: _OcclusionMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0}
+          scale: {x: 0.1, y: 0.1}
           offset: {x: 0, y: 0}
       - first:
           name: _ParallaxMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 0.1, y: 0}
+          scale: {x: 0.1, y: 0.1}
           offset: {x: 0, y: 0}
       floats:
       - first:
@@ -214,7 +214,7 @@ SubstanceImporter:
       colors:
       - first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.9558824, g: 0.9531194, b: 0.93479675, a: 1}
       - first:
           name: _EmissionColor
         second: {r: 0.1397059, g: 0.1397059, b: 0.1397059, a: 1}
